@@ -1,0 +1,5 @@
+---
+# user/platform-specific configuration, like passwords, secret keys, etc.
+database:
+  url: 'postgres://myuser:mypass@localhost/zgeist'
+

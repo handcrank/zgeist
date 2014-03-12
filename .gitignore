@@ -1,0 +1,9 @@
+.project
+*.py[cod]
+logs/*.log
+docs/_build/
+conf/_local.yaml
+public/bower_components/
+public/.webassets-cache
+public/gen
+

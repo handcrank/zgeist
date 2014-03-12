@@ -1,0 +1,36 @@
+---
+logger:
+  # http://docs.python.org/2/library/logging.config.html#logging-config-dictschema
+  version: 1
+  formatters:
+    brief:
+      format: '%(message)s'
+    precise:
+      format: '%(asctime)s %(levelname)-8s %(name)-15s %(message)s'
+      datefmt: '%Y-%m-%d %H:%M:%S'
+  loggers:
+    zgeist:
+      handlers: [zglogfile, console]
+    sqlalchemy:
+      handlers: [sqlalogfile]
+  handlers:
+    console:
+      class      : logging.StreamHandler
+      formatter  : brief
+      level      : INFO
+      stream     : ext://sys.stdout
+    zglogfile:
+      class      : logging.handlers.RotatingFileHandler
+      formatter  : precise
+      level      : DEBUG
+      filename   : '%APP%/logs/zgeist.log'
+      maxBytes   : 1024
+      backupCount: 3
+    sqlalogfile:
+      class      : logging.handlers.RotatingFileHandler
+      formatter  : precise
+      level      : DEBUG
+      filename   : '%APP%/logs/sqlalchemy.log'
+      maxBytes   : 1024
+      backupCount: 1
+
